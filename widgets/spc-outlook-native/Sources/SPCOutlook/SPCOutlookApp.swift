@@ -44,7 +44,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         win.isOpaque = false
         win.backgroundColor = .clear
-        win.level = .floating
+        win.level = isKeepOnTopEnabled ? .floating : .normal
         win.hasShadow = true
         win.isMovableByWindowBackground = true
         win.collectionBehavior = [.canJoinAllSpaces, .stationary, .ignoresCycle]
@@ -99,6 +99,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         menu.addItem(.separator())
 
+        let keepOnTopItem = NSMenuItem(
+            title: "Keep on Top",
+            action: #selector(toggleKeepOnTop),
+            keyEquivalent: ""
+        )
+        keepOnTopItem.state = isKeepOnTopEnabled ? .on : .off
+        menu.addItem(keepOnTopItem)
+
         let loginItem = NSMenuItem(
             title: "Launch at Login",
             action: #selector(toggleLaunchAtLogin),
@@ -135,6 +143,21 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         // simply re-open the window which will trigger a fetch on next appear.
         // For simplicity, we post a distributed notification the ViewModel listens to.
         NotificationCenter.default.post(name: .refreshOutlookNow, object: nil)
+    }
+
+    // MARK: Keep on top
+
+    private var isKeepOnTopEnabled: Bool {
+        UserDefaults.standard.object(forKey: "keepOnTop") == nil
+            ? true  // on by default
+            : UserDefaults.standard.bool(forKey: "keepOnTop")
+    }
+
+    @objc private func toggleKeepOnTop() {
+        let newValue = !isKeepOnTopEnabled
+        UserDefaults.standard.set(newValue, forKey: "keepOnTop")
+        window?.level = newValue ? .floating : .normal
+        rebuildMenu()
     }
 
     @objc private func toggleLaunchAtLogin() {
