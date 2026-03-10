@@ -37,7 +37,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         let win = NSWindow(
             contentRect: frame,
-            styleMask: [.borderless, .fullSizeContentView],
+            styleMask: [.borderless, .fullSizeContentView, .resizable],
             backing: .buffered,
             defer: false
         )
@@ -47,18 +47,27 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         win.level = isKeepOnTopEnabled ? .floating : .normal
         win.hasShadow = true
         win.isMovableByWindowBackground = true
-        win.collectionBehavior = [.canJoinAllSpaces, .stationary, .ignoresCycle]
+        win.collectionBehavior = [.canJoinAllSpaces, .managed]
+        win.minSize = NSSize(width: 380, height: 340)
 
-        win.contentView = NSHostingView(rootView: ContentView())
+        let hostingView = NSHostingView(rootView: ContentView())
+        win.contentView = hostingView
+        // Clear the hosting view layer AFTER assignment — assigning as contentView
+        // can reset layer properties, so this order is required.
+        hostingView.wantsLayer = true
+        hostingView.layer?.backgroundColor = NSColor.clear.cgColor
+        hostingView.layer?.isOpaque = false
         win.makeKeyAndOrderFront(nil)
         self.window = win
 
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(windowDidMove),
-            name: NSWindow.didMoveNotification,
-            object: win
-        )
+        for name in [NSWindow.didMoveNotification, NSWindow.didResizeNotification] {
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(windowDidMove),
+                name: name,
+                object: win
+            )
+        }
     }
 
     @objc private func windowDidMove() {
@@ -133,6 +142,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if win.isVisible {
             win.orderOut(nil)
         } else {
+            // Activate the app so the window actually comes in front of other
+            // apps' windows, even when keepOnTop is off.
+            NSApp.activate(ignoringOtherApps: true)
             win.makeKeyAndOrderFront(nil)
         }
         rebuildMenu()
@@ -189,8 +201,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let d = UserDefaults.standard
         let x = d.double(forKey: "windowX")
         let y = d.double(forKey: "windowY")
-        let w: CGFloat = 520
-        let h: CGFloat = 490   // slightly taller to fit day picker
+        let rawW = d.double(forKey: "windowW")
+        let rawH = d.double(forKey: "windowH")
+        let w: CGFloat = rawW > 0 ? CGFloat(rawW) : 520
+        let h: CGFloat = rawH > 0 ? CGFloat(rawH) : 490
 
         if x != 0 || y != 0 {
             return NSRect(x: x, y: y, width: w, height: h)
@@ -200,8 +214,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func saveWindowFrame(_ frame: NSRect) {
-        UserDefaults.standard.set(Double(frame.origin.x), forKey: "windowX")
-        UserDefaults.standard.set(Double(frame.origin.y), forKey: "windowY")
+        let d = UserDefaults.standard
+        d.set(Double(frame.origin.x),  forKey: "windowX")
+        d.set(Double(frame.origin.y),  forKey: "windowY")
+        d.set(Double(frame.size.width),  forKey: "windowW")
+        d.set(Double(frame.size.height), forKey: "windowH")
     }
 }
 

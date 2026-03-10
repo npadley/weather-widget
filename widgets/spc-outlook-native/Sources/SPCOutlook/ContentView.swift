@@ -2,6 +2,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var viewModel = OutlookViewModel()
+    @State private var hoveredDay: OutlookDay?
+    @State private var hoveredType: OutlookType?
 
     var body: some View {
         VStack(spacing: 0) {
@@ -11,14 +13,18 @@ struct ContentView: View {
             mapView
             footerView
         }
-        .frame(width: 520)
-        .background(.ultraThinMaterial)
+        // No fixed width — let the window drive the size.
+        // Use a shaped background so the material is confined to the rounded
+        // rect and doesn't bleed into the window corners as a grey box.
         .clipShape(RoundedRectangle(cornerRadius: 14))
+        .background {
+            RoundedRectangle(cornerRadius: 14)
+                .fill(.ultraThinMaterial)
+        }
         .overlay {
             RoundedRectangle(cornerRadius: 14)
                 .stroke(Color.white.opacity(0.10), lineWidth: 1)
         }
-        .shadow(color: .black.opacity(0.5), radius: 20, y: 6)
     }
 
     // MARK: Header
@@ -62,20 +68,35 @@ struct ContentView: View {
     private var dayPicker: some View {
         HStack(spacing: 0) {
             ForEach(OutlookDay.allCases, id: \.self) { day in
+                let isActive  = viewModel.activeDay == day
+                let isHovered = hoveredDay == day
+
                 Button {
                     withAnimation(.easeInOut(duration: 0.15)) {
                         viewModel.activeDay = day
                     }
                 } label: {
                     Text(day.label)
-                        .font(.system(size: 11, weight: viewModel.activeDay == day ? .semibold : .regular))
+                        .font(.system(size: 11, weight: isActive ? .semibold : .regular))
                         .frame(maxWidth: .infinity)
+                        .contentShape(Rectangle())
                         .padding(.vertical, 5)
-                        .background(viewModel.activeDay == day ? Color.primary.opacity(0.12) : Color.clear)
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                        .background(
+                            RoundedRectangle(cornerRadius: 5)
+                                .fill(
+                                    isActive  ? Color.primary.opacity(0.14) :
+                                    isHovered ? Color.primary.opacity(0.07) :
+                                                Color.clear
+                                )
+                        )
                 }
                 .buttonStyle(.plain)
-                .foregroundStyle(viewModel.activeDay == day ? Color.primary : Color.secondary)
+                .foregroundStyle(isActive ? Color.primary : Color.secondary)
+                .onHover { hovering in
+                    withAnimation(.easeInOut(duration: 0.1)) {
+                        hoveredDay = hovering ? day : nil
+                    }
+                }
             }
         }
         .padding(.horizontal, 12)
@@ -90,38 +111,44 @@ struct ContentView: View {
     private var tabBar: some View {
         HStack(spacing: 3) {
             ForEach(viewModel.activeDay.availableTypes, id: \.self) { type in
+                let isActive  = viewModel.activeType == type
+                let isHovered = hoveredType == type
+
                 Button {
                     withAnimation(.easeInOut(duration: 0.12)) {
                         viewModel.activeType = type
                     }
                 } label: {
                     Text(type.label)
-                        .font(.system(
-                            size: 11,
-                            weight: viewModel.activeType == type ? .semibold : .regular
-                        ))
+                        .font(.system(size: 11, weight: isActive ? .semibold : .regular))
                         .frame(maxWidth: .infinity)
+                        .contentShape(Rectangle())
                         .padding(.vertical, 5)
                         .background(
                             RoundedRectangle(cornerRadius: 6)
-                                .fill(viewModel.activeType == type
-                                      ? Color.accentColor.opacity(0.22)
-                                      : Color.clear)
+                                .fill(
+                                    isActive  ? Color.accentColor.opacity(0.22) :
+                                    isHovered ? Color.accentColor.opacity(0.10) :
+                                                Color.clear
+                                )
                         )
                         .overlay {
                             RoundedRectangle(cornerRadius: 6)
                                 .stroke(
-                                    viewModel.activeType == type
-                                        ? Color.accentColor.opacity(0.40)
-                                        : Color.clear,
+                                    isActive  ? Color.accentColor.opacity(0.40) :
+                                    isHovered ? Color.accentColor.opacity(0.18) :
+                                                Color.clear,
                                     lineWidth: 1
                                 )
                         }
                 }
                 .buttonStyle(.plain)
-                .foregroundStyle(
-                    viewModel.activeType == type ? Color.primary : Color.secondary
-                )
+                .foregroundStyle(isActive ? Color.primary : Color.secondary)
+                .onHover { hovering in
+                    withAnimation(.easeInOut(duration: 0.1)) {
+                        hoveredType = hovering ? type : nil
+                    }
+                }
             }
         }
         .padding(.horizontal, 12)
@@ -167,7 +194,8 @@ struct ContentView: View {
                 loadingIndicator("Loading outlook…")
             }
         }
-        .frame(height: 310)
+        // Flexible height — grows when the window is resized.
+        .frame(minHeight: 200, maxHeight: .infinity)
         Divider().opacity(0.4)
     }
 
