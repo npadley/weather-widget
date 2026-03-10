@@ -1,0 +1,295 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.SPCOutlook-arm64-apple-macosx26.0-release.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/sources",
+      "importPath" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/ContentView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/Models/OutlookType.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/SPCOutlookApp.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/Services/OutlookService.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/ViewModels/OutlookViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "SPCOutlook",
+      "moduleOutputPath" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/Modules/SPCOutlook.swiftmodule",
+      "objects" : [
+        "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/ContentView.swift.o",
+        "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/OutlookType.swift.o",
+        "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/SPCOutlookApp.swift.o",
+        "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/OutlookService.swift.o",
+        "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/OutlookViewModel.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-whole-module-optimization",
+        "-num-threads",
+        "14",
+        "-serialize-diagnostics",
+        "-O",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "SPCOutlook_main",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "spc_outlook_native"
+      ],
+      "outputFileMapPath" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/ContentView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/OutlookType.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/SPCOutlookApp.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/OutlookService.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/OutlookViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/Modules/SPCOutlook.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/ContentView.swift",
+        "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/Models/OutlookType.swift",
+        "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/SPCOutlookApp.swift",
+        "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/Services/OutlookService.swift",
+        "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/ViewModels/OutlookViewModel.swift"
+      ],
+      "tempsPath" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build",
+      "wholeModuleOptimization" : true
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "SPCOutlook" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "SPCOutlook",
+      "-package-name",
+      "spc_outlook_native",
+      "-c",
+      "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/ContentView.swift",
+      "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/Models/OutlookType.swift",
+      "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/SPCOutlookApp.swift",
+      "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/Services/OutlookService.swift",
+      "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/ViewModels/OutlookViewModel.swift",
+      "-I",
+      "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-whole-module-optimization",
+      "-num-threads",
+      "14",
+      "-serialize-diagnostics",
+      "-O",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "SPCOutlook_main",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "spc_outlook_native",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "SPCOutlook" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/ContentView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/Models/OutlookType.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/SPCOutlookApp.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/Services/OutlookService.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/Sources/SPCOutlook/ViewModels/OutlookViewModel.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/sources"
+    },
+    "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/ContentView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/OutlookService.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/OutlookType.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/OutlookViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.build/SPCOutlookApp.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/SPCOutlook.product/Objects.LinkFileList"
+    },
+    "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/swift-version--1AB21518FC5DEDBE.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/nickpadley/Library/CloudStorage/OneDrive-LogileInc/Documents/development/weather-map/widgets/spc-outlook-native/.build/arm64-apple-macosx/release/swift-version--1AB21518FC5DEDBE.txt"
+    }
+  }
+}
