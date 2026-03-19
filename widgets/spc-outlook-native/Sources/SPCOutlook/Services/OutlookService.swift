@@ -14,8 +14,9 @@ actor OutlookService {
             throw OutlookError.parseFailure("Could not decode page as UTF-8")
         }
 
-        // Matches patterns like: show_tab('otlk_2000') or show_tab('prob_1930')
-        let pattern = #/(?:otlk|prob)_(\d{3,4})/#
+        // Matches patterns like: show_tab('otlk_2000') or if (nam == "prob_1930")
+        // \b prevents false matches in table filenames like ac3prob_1200_SItable.html
+        let pattern = #/\b(?:otlk|prob)_(\d{3,4})/#
         if let match = html.firstMatch(of: pattern) {
             return String(match.1)
         }
